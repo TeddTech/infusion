@@ -94,3 +94,36 @@
 .fl-theme-yb .fl-uiOptions-fatPanel .fl-panelBar, 
 .fl-theme-yb .fl-uiOptions-fatPanel .fl-toggleButton,
 .fl-theme-yb .fl-uiOptions-fatPanel .fl-uiOptions-reset { background-color: #000; border-color: #ffff00; color: #ffff00 }
+
+/* Text-to-speech menu */
+.fl-textToSpeech-menu {
+    position: absolute;
+    top:50px;
+    left:50px;
+}
+
+.fl-textToSpeech-menuBar {
+    display: table;
+    cursor: pointer;
+    z-index:9999
+}
+
+.fl-textToSpeech-menu-item {
+    display: table-cell;
+    color: #ffffff;
+    background-color: #808080;
+    border: 1px solid black;
+    width: 10em;
+    font-size:1em;
+    font-weight:bold;
+    padding: 1em;
+}
+
+.fl-textToSpeech-settingsMenu {
+    color: #ffffff;
+    background-color: #808080;
+    display: none;
+    width: 20em;
+    margin-left: 20em;
+    height: 10em;
+}

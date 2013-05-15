@@ -47,7 +47,8 @@ var fluid_1_5 = fluid_1_5 || {};
         },
         selectors: {
             reset: ".flc-uiOptions-reset",
-            iframe: ".flc-uiOptions-iframe"
+            iframe: ".flc-uiOptions-iframe",
+            textToSpeechMenu: ".flc-textToSpeech-menu"
         },
         invokers: {
             bindReset: {
@@ -56,6 +57,10 @@ var fluid_1_5 = fluid_1_5 || {};
             }
         },
         components: {
+            textToSpeechMenu: {
+                type: "fluid.uiOptions.textToSpeechMenu",
+                container: "{fatPanel}.dom.textToSpeechMenu"
+            },
             pageEnhancer: "{uiEnhancer}",
             slidingPanel: {
                 type: "fluid.slidingPanel",
