@@ -99,7 +99,7 @@ html {
     .fl-links-buttons-options {
         label {
             width: 21em;
-            display:inline-block;
+            display: inline-block;
         }
 
         li {
@@ -136,6 +136,36 @@ html {
 
     .fl-icon-prev:before {
         content: "\e002";
+    }
+}
+
+// Responsive structure
+@media only screen and (max-width: 30em) {
+    .fl-prefsEditor-separatedPanel {
+        height: 9em;
+        padding: 3px;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .fl-prefsEditor-panels {
+            margin: 0;
+
+            .fl-prefsEditor-panel {
+                display: inherit;
+                margin-bottom: 5px;
+                min-height: 8em;
+                padding-left: 0.5em;
+                width: 22.5em;
+            }
+        }
+
+        .fl-links-buttons-options {
+            padding-left: 0;
+
+            label {
+                width: 20em;
+            }
+        }
     }
 }
 

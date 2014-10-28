@@ -96,5 +96,25 @@
     width: 100%;
 }
 
+// Responsive structure
+@media only screen and (max-width: 30em) {
+    .fl-prefsEditor-separatedPanel {
+        .fl-panelBar {
+            .fl-prefsEditor-buttons {
+                margin-right: 0.5em;
+            }
+        }
+
+        .fl-prefsEditor-showHide {
+            min-width: 8em;
+
+            .fl-prefsEditor-reset {
+                margin-right: 0;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
 // Theming
 build-themes-separatedPanelPrefsEditor(themes);
