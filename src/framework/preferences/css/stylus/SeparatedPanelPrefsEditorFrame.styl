@@ -140,10 +140,10 @@ html {
 }
 
 // Responsive structure
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 30rem) {
     .fl-prefsEditor-separatedPanel {
         height: 9em;
-        padding: 3px;
+        padding: 3px 0;
         overflow-x: hidden;
         overflow-y: auto;
 
@@ -153,17 +153,26 @@ html {
             .fl-prefsEditor-panel {
                 display: inherit;
                 margin-bottom: 5px;
-                min-height: 8em;
-                padding-left: 0.5em;
-                width: 22.5em;
+                min-height: 7.5em;
+                padding-left: 1em;
+                border-radius: 0;
+                width: 100%;
             }
+        }
+
+        h2 {
+            padding: 0;
+            margin: 0 0 1em 0;
+            font-size: 0.9em;
+            line-height: inherit;
+            height: 2em;
         }
 
         .fl-links-buttons-options {
             padding-left: 0;
 
             label {
-                width: 20em;
+                width: 18em;
             }
         }
     }

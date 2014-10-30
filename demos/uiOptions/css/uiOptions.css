@@ -192,3 +192,35 @@ main {
 .fl-prefsEditor-separatedPanel .fl-panelBar .fl-prefsEditor-reset  {
     border-right: 1px solid #fff;
 }
+
+/* Responsive structure */
+@media only screen and (max-width: 30rem) {
+    .content h2 {
+        font-size: 1.2em;
+    }
+
+    .header,
+    .instructions {
+        font-size: 1em;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .header .tagline {
+        font-size: 1em;
+    }
+
+    .instructions li {
+        font-size: 0.9em;
+    }
+
+    .instructions .instruction-comment {
+        font-size: 0.8em;
+    }
+
+    .disp-opts-button .preview {
+        font-size: 0.8em;
+    }
+}

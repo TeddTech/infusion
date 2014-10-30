@@ -201,7 +201,11 @@ var fluid_2_0 = fluid_2_0 || {};
         that.iframeSrc = that.options.markupProps.src;
 
         // Create iframe and append to container
-        that.iframe = $("<iframe/>");
+        // Adding scroll="no" to the iframe is a workaround for an issue with iOS browser that the iframe
+        // would otherwise fully open such as on iphone, instead of opening to the defined height.
+        // The workaround is based on the option 2 of this article:
+        // http://techiepulkit.blogspot.ca/2014/09/iframe-ios-7-safari-issues-workarounds.html
+        that.iframe = $("<iframe scroll=\"no\" />");
         that.iframe.load(function () {
             var iframeWindow = that.iframe[0].contentWindow;
             that.iframeDocument = iframeWindow.document;
@@ -238,11 +242,19 @@ var fluid_2_0 = fluid_2_0 || {};
         });
         prefsEditor.events.onSignificantDOMChange.addListener(function () {
             var dokkument = prefsEditor.container[0].ownerDocument;
-            var height = fluid.dom.getDocumentHeight(dokkument);
+            var height = fluid.dom.getDocumentHeight(dokkument) + 15; // TODO: Configurable padding here
             var iframe = separatedPanel.iframeRenderer.iframe;
-            var attrs = {height: height + 15}; // TODO: Configurable padding here
+            var attrs = {height: height};
             var panel = separatedPanel.slidingPanel.locate("panel");
             panel.css({height: ""});
+
+            // Adding height attribute to the iframe wrapper div is a workaround for an issue with iOS browser that
+            // the iframe would otherwise fully open such as on iphone, instead of opening to the defined height.
+            // The workaround is based on the option 2 of this article:
+            // http://techiepulkit.blogspot.ca/2014/09/iframe-ios-7-safari-issues-workarounds.html
+            if (navigator.userAgent.match(/(ip(hone|od|ad))/i)) {
+                separatedPanel.locate("iframe").css("height", height);
+            }
             iframe.animate(attrs, 400);
         });
 

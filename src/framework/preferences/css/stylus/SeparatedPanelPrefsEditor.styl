@@ -97,8 +97,13 @@
 }
 
 // Responsive structure
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 30rem) {
     .fl-prefsEditor-separatedPanel {
+        .fl-prefsEditor-iframe {
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+
         .fl-panelBar {
             .fl-prefsEditor-buttons {
                 margin-right: 0.5em;
@@ -107,11 +112,15 @@
 
         .fl-prefsEditor-showHide {
             min-width: 8em;
+        }
 
-            .fl-prefsEditor-reset {
-                margin-right: 0;
-                margin-left: 0;
-            }
+        .fl-prefsEditor-reset {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .fl-prefsEditor-showHide, .fl-prefsEditor-reset {
+            font-size: 1em;
         }
     }
 }
