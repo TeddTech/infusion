@@ -178,6 +178,12 @@ module.exports = function(grunt) {
                     }
                 }]
             }
+        },
+        watch: {
+            stylus: {
+                files: ["src/**/*.styl"],
+                tasks: ["stylus"]
+            }
         }
     });
 
@@ -190,6 +196,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-modulefiles");
     grunt.loadNpmTasks("grunt-contrib-stylus");
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Custom tasks:
 
