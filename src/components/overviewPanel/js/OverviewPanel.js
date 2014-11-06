@@ -42,7 +42,7 @@ var fluid_2_0 = fluid_2_0 || {};
             },
             "afterRender.registerCloseListener": {
                 "funcName": "fluid.overviewPanel.makeBooleanListener",
-                "args": ["{that}", "closeControl", "click", "showPanel", false]
+                "args": ["{that}", "showDemo", "click", "showPanel", false]
             },
             "afterRender.setLinkHrefs": {
                 "funcName": "fluid.overviewPanel.setLinkHrefs",
@@ -56,12 +56,12 @@ var fluid_2_0 = fluid_2_0 || {};
                     "aria-controls": "{that}.containerId"
                 }
             },
-            "afterRender.setCloseControlAria": {
-                "this": "{that}.dom.closeControl",
+            "afterRender.setshowDemoAria": {
+                "this": "{that}.dom.showDemo",
                 "method": "attr",
                 "args": {
                     "role": "button",
-                    "aria-label": "{that}.options.strings.closePanelLabel",
+                    "aria-label": "{that}.options.strings.showDemoText",
                     "aria-controls": "{that}.containerId"
                 }
             },
@@ -107,18 +107,17 @@ var fluid_2_0 = fluid_2_0 || {};
             demoCodeLink: ".flc-overviewPanel-demoCodeLink",
             demoCodeLinkText: ".flc-overviewPanel-demoCodeLinkText",
             infusionCodeLink: ".flc-overviewPanel-infusionCodeLink",
-            infusionCodeLinkText: ".flc-overviewPanel-infusionCodeLinkText",
             apiLink: ".flc-overviewPanel-apiLink",
             apiLinkText: ".flc-overviewPanel-apiLinkText",
             designLink: ".flc-overviewPanel-designLink",
             designLinkText: ".flc-overviewPanel-designLinkText",
-            feedbackText: ".flc-overviewPanel-feedbackText",
             feedbackLink: ".flc-overviewPanel-feedbackLink",
             feedbackLinkText: ".flc-overviewPanel-feedbackLinkText",
-            closeControl: ".flc-overviewPanel-closeControl",
-            closeText: ".flc-overviewPanel-closeText"
+            infusionCodeLinkText: ".flc-overviewPanel-infusionCodeLinkText",
+            showDemo: ".flc-overviewPanel-showDemo",
+            showDemoText: ".flc-overviewPanel-showDemoText"
         },
-        selectorsToIgnore: ["toggleControl", "titleLink", "demoCodeLink", "infusionCodeLink", "apiLink", "designLink", "feedbackLink", "closeControl"],
+        selectorsToIgnore: ["toggleControl", "titleLink", "demoCodeLink", "infusionCodeLink", "apiLink", "designLink", "feedbackLink", "showDemo"],
         protoTree: {
             titleBegin: {messagekey: "titleBegin"},
             titleLinkText: {messagekey: "titleLinkText"},
@@ -128,15 +127,15 @@ var fluid_2_0 = fluid_2_0 || {};
             instructionsHeading: {messagekey: "instructionsHeading"},
             instructions: {markup: "${{that}.options.markup.instructions}"},
             demoCodeLinkText: {messagekey: "demoCodeLinkText"},
-            infusionCodeLinkText: {messagekey: "infusionCodeLinkText"},
             apiLinkText: {messagekey: "apiLinkText"},
             designLinkText: {messagekey: "designLinkText"},
-            feedbackText: {messagekey: "feedbackText"},
             feedbackLinkText: {messagekey: "feedbackLinkText"},
-            closeText: {messagekey: "closeText"}
+            infusionCodeLinkText: {messagekey: "infusionCodeLinkText"},
+            showDemoText: {messagekey: "showDemoText"}
         },
         styles: {
-            hidden: "fl-overviewPanel-hidden"
+            hidden: "fl-overviewPanel-hidden",
+            closeIcon: "fl-overviewPanel-toggleControl-close"
         },
         strings: {
             titleBegin: "An",
@@ -145,12 +144,11 @@ var fluid_2_0 = fluid_2_0 || {};
             componentName: "Component Name",
             instructionsHeading: "Instructions",
             demoCodeLinkText: "demo code",
-            infusionCodeLinkText: "get Infusion",
             apiLinkText: "API",
             designLinkText: "design",
-            feedbackText: "Found a bug? Have a question?",
-            feedbackLinkText: "Let us know!",
-            closeText: "close",
+            feedbackLinkText: "Send Feedback",
+            infusionCodeLinkText: "get Infusion",
+            showDemoText: "Show the demo",
             openPanelLabel: "Open the overview panel",
             closePanelLabel: "Close the overview panel"
         },
@@ -185,13 +183,18 @@ var fluid_2_0 = fluid_2_0 || {};
     };
 
     fluid.overviewPanel.setAriaStates = function (that, showPanel) {
-        that.locate("toggleControl").attr("aria-pressed", !showPanel);
-        that.locate("toggleControl").attr("aria-expanded", showPanel);
-        that.locate("closeControl").attr("aria-expanded", showPanel);
+        var toggleControl = that.locate("toggleControl");
+        var showDemo = that.locate("showDemo");
+
+        toggleControl.attr("aria-pressed", !showPanel);
+        toggleControl.attr("aria-expanded", showPanel);
+        showDemo.attr("aria-expanded", showPanel);
         if (showPanel) {
-            that.locate("toggleControl").attr("aria-label", that.options.strings.closePanelLabel);
+            toggleControl.attr("aria-label", that.options.strings.closePanelLabel);
+            toggleControl.removeClass(that.options.styles.closeIcon);
         } else {
-            that.locate("toggleControl").attr("aria-label", that.options.strings.openPanelLabel);
+            toggleControl.attr("aria-label", that.options.strings.openPanelLabel);
+            toggleControl.addClass(that.options.styles.closeIcon);
         }
     };
 
