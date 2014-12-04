@@ -34,14 +34,13 @@ var fluid_2_0 = fluid_2_0 || {};
             onCreateSlidingPanelReady: {
                 events: {
                     iframeRendered: "afterRender",
-                    onMsgResolverReady: "onMsgResolverReady"
+                    onResourcesReady: "onResourcesReady"
                 }
             },
-            templatesAndIframeReady: {
+            resourcesAndIframeReady: {
                 events: {
                     iframeReady: "afterRender",
-                    templatesLoaded: "onPrefsEditorTemplatesLoaded",
-                    messagesLoaded: "onPrefsEditorMessagesLoaded"
+                    onResourcesReady: "onResourcesReady",
                 }
             }
         },
@@ -123,7 +122,7 @@ var fluid_2_0 = fluid_2_0 || {};
                 }
             },
             prefsEditor: {
-                createOnEvent: "templatesAndIframeReady",
+                createOnEvent: "resourcesAndIframeReady",
                 container: "{iframeRenderer}.renderPrefsEditorContainer",
                 options: {
                     gradeNames: ["fluid.prefs.uiEnhancerRelay"],

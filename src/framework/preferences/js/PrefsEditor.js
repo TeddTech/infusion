@@ -27,45 +27,12 @@ var fluid_2_0 = fluid_2_0 || {};
      * @param {Object} options
      */
     fluid.defaults("fluid.prefs.prefsEditorLoader", {
-        gradeNames: ["fluid.viewComponent", "autoInit"],
+        gradeNames: ["fluid.viewComponent", "fluid.prefs.resourceManager", "autoInit"],
         components: {
             prefsEditor: {
                 priority: "last",
                 type: "fluid.prefs.prefsEditor",
-                createOnEvent: "onCreatePrefsEditorReady"
-            },
-            templateLoader: {
-                type: "fluid.prefs.resourceLoader",
-                options: {
-                    events: {
-                        onResourcesLoaded: "{prefsEditorLoader}.events.onPrefsEditorTemplatesLoaded"
-                    }
-                }
-            },
-            messageLoader: {
-                type: "fluid.prefs.resourceLoader",
-                options: {
-                    events: {
-                        onResourcesLoaded: "{prefsEditorLoader}.events.onPrefsEditorMessagesLoaded"
-                    }
-                }
-            }
-        },
-        events: {
-            onPrefsEditorTemplatesLoaded: null,
-            onPrefsEditorMessagesLoaded: null,
-            onMsgResolverReady: null,
-            onCreatePrefsEditorReady: {
-                events: {
-                    templateLoaded: "onPrefsEditorTemplatesLoaded",
-                    msgResolverReady: "onMsgResolverReady"
-                }
-            }
-        },
-        listeners: {
-            onPrefsEditorMessagesLoaded: {
-                funcName: "fluid.prefs.prefsEditorLoader.createMsgResolver",
-                args: ["{arguments}.0", "{that}"]
+                createOnEvent: "onResourcesReady"
             }
         },
         distributeOptions: [{
@@ -88,17 +55,6 @@ var fluid_2_0 = fluid_2_0 || {};
             target: "{that > prefsEditor}.options"
         }]
     });
-
-    fluid.prefs.prefsEditorLoader.createMsgResolver = function (messageResources, that) {
-        var completeMessage;
-        fluid.each(messageResources, function (oneResource) {
-            var message = JSON.parse(oneResource.resourceText);
-            completeMessage = $.extend({}, completeMessage, message);
-        });
-        var parentResolver = fluid.messageResolver({messageBase: completeMessage});
-        that.msgResolver = fluid.messageResolver({messageBase: {}, parents: [parentResolver]});
-        that.events.onMsgResolverReady.fire();
-    };
 
     // TODO: This mixin grade appears to be supplied manually by various test cases but no longer appears in
     // the main configuration. We should remove the need for users to supply this - also the use of "defaultPanels" in fact
