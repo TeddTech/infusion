@@ -354,7 +354,7 @@ var fluid_2_0 = fluid_2_0 || {};
      */
 
     fluid.defaults("fluid.prefs.starterTemplateLoader", {
-        gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+        gradeNames: ["fluid.resourceLoader", "autoInit"],
         templates: {
             textSize: "%prefix/PrefsEditorTemplate-textSize.html",
             textFont: "%prefix/PrefsEditorTemplate-textFont.html",
@@ -399,7 +399,7 @@ var fluid_2_0 = fluid_2_0 || {};
      */
 
     fluid.defaults("fluid.prefs.starterMessageLoader", {
-        gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+        gradeNames: ["fluid.resourceLoader", "autoInit"],
         templates: {
             prefsEditor: "%prefix/prefsEditor.json",
             textSize: "%prefix/textSize.json",

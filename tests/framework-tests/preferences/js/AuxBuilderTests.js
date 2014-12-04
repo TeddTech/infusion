@@ -630,11 +630,11 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         },
         messageLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {}
         },
         templateLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {}
         }
     };
@@ -680,13 +680,13 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         },
         templateLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {
                 "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.html"
             }
         },
         messageLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {
                 "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.json"
             }
@@ -835,14 +835,14 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
                     }
                 },
                 templateLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.html",
                         "fluid_prefs_panel_otherTextSize": "%prefix/PrefsEditorTemplate-otherTextSize.html"
                     }
                 },
                 messageLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.json",
                         "fluid_prefs_panel_otherTextSize": "%prefix/PrefsEditorTemplate-otherTextSize.json"
@@ -902,13 +902,13 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
                     }
                 },
                 templateLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "fluid_prefs_panel_oneForManyPrefs": "%prefix/PrefsEditorTemplate-linksControls.html"
                     }
                 },
                 messageLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "fluid_prefs_panel_oneForManyPrefs": "%prefix/PrefsEditorTemplate-linksControls.json"
                     }
@@ -967,14 +967,14 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
                     }
                 },
                 templateLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "prefsEditor": "%prefix/SeparatedPanelPrefsEditor.html",
                         "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.html"
                     }
                 },
                 messageLoader: {
-                    gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+                    gradeNames: ["fluid.resourceLoader", "autoInit"],
                     templates: {
                         "fluid_prefs_panel_textSize": "%prefix/PrefsEditorTemplate-textSize.json",
                         "prefsEditor": "%prefix/PrefsEditorTemplate-prefsEditor.json"
@@ -1932,13 +1932,13 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             "selectors": {}
         },
         templateLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {
                 "prefsEditor": "%prefix/prefs.html"
             }
         },
         messageLoader: {
-            gradeNames: ["fluid.prefs.resourceLoader", "autoInit"],
+            gradeNames: ["fluid.resourceLoader", "autoInit"],
             templates: {
                 "prefsEditor": "%prefix/prefs.json"
             }

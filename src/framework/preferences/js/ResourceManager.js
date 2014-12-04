@@ -27,7 +27,7 @@ var fluid_2_0 = fluid_2_0 || {};
         gradeNames: ["fluid.eventedComponent", "autoInit"],
         components: {
             templateLoader: {
-                type: "fluid.prefs.resourceLoader",
+                type: "fluid.resourceLoader",
                 options: {
                     events: {
                         onResourcesLoaded: "{resourceManager}.events.onTemplatesLoaded"
@@ -35,7 +35,7 @@ var fluid_2_0 = fluid_2_0 || {};
                 }
             },
             messageLoader: {
-                type: "fluid.prefs.resourceLoader",
+                type: "fluid.resourceLoader",
                 options: {
                     events: {
                         onResourcesLoaded: "{resourceManager}.events.onMessagesLoaded"
@@ -101,11 +101,11 @@ var fluid_2_0 = fluid_2_0 || {};
      * @param {Object} options
      */
 
-    fluid.defaults("fluid.prefs.resourceLoader", {
+    fluid.defaults("fluid.resourceLoader", {
         gradeNames: ["fluid.eventedComponent", "autoInit"],
         listeners: {
             "onCreate": {
-                listener: "fluid.prefs.resourceLoader.loadTemplates",
+                listener: "fluid.resourceLoader.loadTemplates",
                 args: ["{that}", {expander: {func: "{that}.resolveTemplates"}}]
             }
         },
@@ -122,7 +122,7 @@ var fluid_2_0 = fluid_2_0 || {};
                 args: [ "{arguments}.0", {"prefix/" : "{that}.resourcePath.options.value"} ]
             },
             resolveTemplates: {
-                funcName: "fluid.prefs.resourceLoader.resolveTemplates",
+                funcName: "fluid.resourceLoader.resolveTemplates",
                 args: "{that}"
             }
         },
@@ -131,7 +131,7 @@ var fluid_2_0 = fluid_2_0 || {};
         }
     });
 
-    fluid.prefs.resourceLoader.resolveTemplates = function (that) {
+    fluid.resourceLoader.resolveTemplates = function (that) {
         var mapped = fluid.transform(that.options.templates, that.transformURL);
 
         return fluid.transform(mapped, function (url) {
@@ -139,7 +139,7 @@ var fluid_2_0 = fluid_2_0 || {};
         });
     };
 
-    fluid.prefs.resourceLoader.loadTemplates = function (that, resources) {
+    fluid.resourceLoader.loadTemplates = function (that, resources) {
         delete resources.expander;   // A work-around for FLUID-5117
         fluid.fetchResources(resources, function () {
             that.resources = resources;
