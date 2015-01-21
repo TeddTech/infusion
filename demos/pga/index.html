@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="../../src/lib/normalize/css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../../src/framework/core/css/fluid.css" />
+
+        <!-- CSS required for the Prefs Editor -->
+        <link rel="stylesheet" type="text/css" href="../../src/framework/preferences/css/Enactors.css" />
+        <link rel="stylesheet" type="text/css" href="../../src/framework/preferences/css/PrefsEditor.css" />
+        <link rel="stylesheet" type="text/css" href="../../src/framework/preferences/css/SeparatedPanelPrefsEditor.css" />
+        <link rel="stylesheet" type="text/css" href="../../src/components/overviewPanel/css/OverviewPanel.css" />
+
+        <!-- <link href="css/main.css" rel="stylesheet" type="text/css" media="screen"> -->
+
+        <script type="text/javascript" src="../../src/lib/jquery/core/js/jquery.js"></script>
+        <script type="text/javascript" src="../../src/lib/jquery/ui/js/jquery.ui.core.js"></script>
+        <script type="text/javascript" src="../../src/lib/jquery/ui/js/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="../../src/lib/jquery/ui/js/jquery.ui.mouse.js"></script>
+        <script type="text/javascript" src="../../src/lib/jquery/ui/js/jquery.ui.slider.js"></script>
+        <script type="text/javascript" src="../../src/lib/json/js/json2.js"></script>
+        <!--[if IE 8]>
+            <script type="text/javascript" src="lib/html5shiv/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="../../src/framework/core/js/FluidDocument.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/jquery.keyboard-a11y.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/Fluid.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/FluidRequests.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/FluidDOMUtilities.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/FluidIoC.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/DataBinding.js"></script>
+        <script type="text/javascript" src="../../src/framework/core/js/FluidView.js"></script>
+        <script type="text/javascript" src="../../src/lib/fastXmlPull/js/fastXmlPull.js"></script>
+        <script type="text/javascript" src="../../src/framework/renderer/js/fluidParser.js"></script>
+        <script type="text/javascript" src="../../src/framework/renderer/js/fluidRenderer.js"></script>
+        <script type="text/javascript" src="../../src/framework/renderer/js/RendererUtilities.js"></script>
+        <script type="text/javascript" src="../../src/framework/enhancement/js/ProgressiveEnhancement.js"></script>
+
+        <script type="text/javascript" src="../../src/framework/preferences/js/URLUtilities.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/Store.js"></script>
+        <script type="text/javascript" src="../../src/components/textfieldSlider/js/TextfieldSlider.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/UIEnhancer.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/PrefsEditor.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/Panels.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/ModelRelay.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/Enactors.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/SeparatedPanelPrefsEditor.js"></script>
+        <script type="text/javascript" src="../../src/components/slidingPanel/js/SlidingPanel.js"></script>
+        <script type="text/javascript" src="../../src/components/tableOfContents/js/TableOfContents.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/PrimaryBuilder.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/AuxBuilder.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/StarterSchemas.js"></script>
+        <script type="text/javascript" src="../../src/framework/preferences/js/Builder.js"></script>
+        <script type="text/javascript" src="../../src/components/uiOptions/js/UIOptions.js"></script>
+
+        <script type="text/javascript" src="schemas/schemas.js"></script>
+        <script type="text/javascript" src="js/pga.js"></script>
+
+        <title>PGA Experiment with Preferences Framework</title>
+    </head>
+
+    <body class="fl-focus">
+        <!-- The page-wide UI Enhancer needs to be initialized right away -->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var pga = fluid.prefs.create("#flc-pga", {
+                    build: {
+                        gradeNames: ["fluid.pga.auxSchema"]
+                    },
+                    prefsEditor: {
+                        prefsEditorType: "fluid.pga"
+                    }
+                });
+            });
+        </script>
+
+        <div id="flc-pga"></div>
+    </body>
+</html>
