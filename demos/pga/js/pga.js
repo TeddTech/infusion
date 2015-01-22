@@ -46,7 +46,7 @@ var fluid = fluid_2_0 || {};
     });
 
     fluid.pga.nextPanel = function (that) {
-        var nextPanel = ++that.model.currentPanel;
+        var nextPanel = that.model.currentPanel + 1;
         that.applier.change("currentPanel", nextPanel);
     };
 
