@@ -701,7 +701,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         });
         jqUnit.assertLeftHand("Merged grades in correct left-to-right order with direct grade arguments", expected, merged2.options);
     });
-    
+
     fluid.defaults("fluid.tests.FLUID5800base", {
         events: {
             onUserToken: null
@@ -720,7 +720,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             getDeviceContext: "fluid.tests.fluid5800count"
         }
     });
-    
+
     fluid.tests.fluid5800count = function (that) {
         ++ that.eventCount;
     };
@@ -731,11 +731,11 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             onUserToken: "{that}.getDeviceContext"
         }
     });
-    
+
     fluid.defaults("fluid.tests.FLUID5800", {
         gradeNames: ["fluid.component", "fluid.tests.FLUID5800mid"]
     });
-    
+
     jqUnit.test("FLUID-5800 merge corruption", function () {
         jqUnit.expect(2);
 
@@ -749,9 +749,9 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         // jqUnit.assertEquals("Listeners were designated correctly in abstract grade", 3, midDefaults.listeners.onUserToken.length);
     });
 
-    
+
     /** FLUID-5615: Base grades of subcomponents should be weaker than dynamic **/
-    
+
     fluid.defaults("fluid.tests.FLUID5615sub", {
         gradeNames: ["fluid.component", "fluid.tests.FLUID5615subBase"],
         value: "fromSub"
@@ -766,7 +766,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         gradeNames: "fluid.component",
         value: "fromDyn"
     });
-    
+
     fluid.defaults("fluid.tests.FLUID5615base", {
         gradeNames: "fluid.component",
         distributeOptions: {
@@ -1324,7 +1324,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
     });
 
     /** FLUID-5818 - ginger reference from distant construct descendent of incomplete parent **/
-    
+
     fluid.defaults("fluid.tests.FLUID5818root", {
         gradeNames: "fluid.component",
         components: {
@@ -1349,10 +1349,10 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             child2: {
                 type: "fluid.component"
             }
-            
+
         }
     });
-    
+
     fluid.tests.fluid5818fetch = function (child2) {
         jqUnit.assertValue("Should have caused fetch of child of unconstructed parent", child2);
     };
@@ -1365,9 +1365,9 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             jqUnit.assertEquals("All components should have \"treeConstructed\" state", "treeConstructed", component.lifecycleStatus);
         });
     });
-    
+
     /** FLUID-5820 - scope chain reference to injected component **/
-    
+
     fluid.defaults("fluid.tests.FLUID5820root", {
         gradeNames: "fluid.component",
         components: {
@@ -1394,7 +1394,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     jqUnit.test("FLUID-5820 scope chain reference to injected component", function () {
         var root = fluid.tests.FLUID5820root();
         var child = root.child3.get();
@@ -1831,9 +1831,9 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         jqUnit.assertNotEquals("Child2 reinstantiated", origID, reins.child1.child2.id);
         checkValue("Changed value", reins, "headValue2", expectedPaths);
     });
-    
+
     /** FLUID-5812 - corruption in clear in cases of partial clear **/
-    
+
     fluid.defaults("fluid.tests.FLUID5812root", {
         gradeNames: "fluid.component",
         components: {
@@ -1857,7 +1857,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     jqUnit.test("FLUID-5812 mis-clear test I", function () {
         jqUnit.expect(1);
         var that = fluid.tests.FLUID5812root();
@@ -2672,7 +2672,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
     });
 
     /** FLUID-5012: IoCSS doesn't apply the gradeNames option onto the target component **/
-    
+
     fluid.defaults("fluid.tests.prefsEditor", {
         gradeNames: ["fluid.component"],
         components: {
@@ -3416,7 +3416,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
     /** FLUID-5615: Raw dynamic grades should be last-ditch **/
 
     fluid.makeGradeLinkage("fluid.tests.FLUID5615linkage", ["fluid.tests.FLUID5615", "fluid.tests.FLUID5615.writable"], "fluid.tests.FLUID5615.linkage.writable");
-    
+
     fluid.constructSingle([], "fluid.tests.FLUID5615linkage");
 
     fluid.defaults("fluid.tests.FLUID5615", {
@@ -3428,15 +3428,15 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     fluid.defaults("fluid.tests.FLUID5615derived", {
         writable: true
     });
-    
+
     fluid.tests.FLUID5615.getWritableGrade = function (writable) {
         return writable ? "fluid.tests.FLUID5615.writable" : [];
     };
-    
+
     jqUnit.test("FLUID-5615: Resolve dynamic grade material from raw dynamic grade", function () {
         var that = fluid.tests.FLUID5615({
             gradeNames: "fluid.tests.FLUID5615derived"
@@ -4087,9 +4087,9 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         that.destroy(); // it contains a global distribution!
         advisor.destroy();
     });
-    
+
     /** FLUID-5824 tests - distances and namespace overriding for distributions **/
-    
+
     fluid.defaults("fluid.tests.fluid5824root", {
         gradeNames: "fluid.tests.fluid5621common",
         distributeOptions: {
@@ -4098,7 +4098,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             namespace: "fluid5621middle"
         }
     });
-    
+
     jqUnit.test("Test FLUID-5824 distributeOptions priority + namespace arbitration", function () {
         var advisor = fluid.tests.fluid5621global();
         var that = fluid.tests.fluid5824root();
@@ -4108,16 +4108,16 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         jqUnit.assertDeepEq("Distributed options resolved in required priority order", expected, options);
         advisor.destroy();
     });
-    
+
     /** FLUID-5835 test - uniquifying of multiple distribution blocks **/
-    
+
     fluid.defaults("fluid.tests.fluid5835increase", {
         gradeNames: "fluid.component",
         messageBase: {
             increaseHeader: "increase"
         }
     });
-    
+
     fluid.defaults("fluid.tests.fluid5835panel", {
         gradeNames: "fluid.component",
         components: {
@@ -4130,7 +4130,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             target: "{that > msgResolver}.options.messageBase"
         }
     });
-    
+
     fluid.defaults("fluid.tests.fluid5835root", {
         gradeNames: "fluid.component",
         components: {
@@ -4142,21 +4142,21 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     jqUnit.test("FLUID-5835: Uniquifying multiple distribution blocks", function () {
         var options = {};
         fluid.set(options, "components.increasing.options.gradeNames", "fluid.tests.fluid5835increase");
         var that = fluid.tests.fluid5835root(options);
         jqUnit.assertEquals("Correctly distributed", "increase", that.increasing.msgResolver.options.messageBase.increaseHeader);
     });
-    
+
     /** FLUID-5813: namespaces and priority for distributeOptions early route **/
-    
+
     fluid.makeComponents({
         "fluid.tests.FLUID5813far":        "fluid.component",
         "fluid.tests.FLUID5813near":       "fluid.component"
     });
-    
+
     fluid.defaults("fluid.tests.FLUID5813root", {
         gradeNames: "fluid.component",
         distributeOptions: {
@@ -4185,14 +4185,14 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     jqUnit.test("FLUID-5813 - namespaces and priority for distributeOptions early route", function () {
         var that = fluid.tests.FLUID5813root();
         jqUnit.assertEquals("Successfully overridden near distribution to type ", "fluid.tests.FLUID5813far", that.child1.target.typeName);
     });
-    
+
     /** FLUID-5824 variant of FLUID-5813: namespaces and priority for distributeOptions early route **/
-    
+
     fluid.defaults("fluid.tests.FLUID5824earlyroot", {
         gradeNames: "fluid.component",
         distributeOptions: {
@@ -4220,7 +4220,7 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
             }
         }
     });
-    
+
     jqUnit.test("FLUID-5824 variant of FLUID-5813 - namespaces and priority for distributeOptions early route", function () {
         var that = fluid.tests.FLUID5824earlyroot();
         jqUnit.assertEquals("Successfully overridden near distribution to type ", "fluid.tests.FLUID5813far", that.child1.target.typeName);
@@ -4258,4 +4258,45 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         jqUnit.assertNoValue("Destroyed nexus component via array path", fluid.rootComponent.fluid_tests_nexusRoot.child);
         fluid.destroy("fluid_tests_nexusRoot");
     });
+
+    // ==========
+    fluid.defaults("fluid.tests.dataStore", {
+        gradeNames: "fluid.component"
+    });
+    fluid.defaults("fluid.tests.inMemoryDataStore", {
+        gradeNames: "fluid.tests.dataStore",
+        inMemory: true
+    });
+
+    fluid.defaults("fluid.tests.flowManager", {
+        gradeNames: "fluid.component",
+        components: {
+            dataStore: {
+                type: "fluid.tests.dataStore"
+            }
+        }
+    });
+
+    fluid.defaults("fluid.tests.server", {
+        gradeNames: "fluid.component",
+        components: {
+            dataStore: {
+                type: "fluid.tests.inMemoryDataStore"
+            },
+            flowManager: {
+                type: "fluid.tests.flowManager"
+            }
+        },
+        distributeOptions: {
+            record: "{that}.dataStore",
+            target: "{that flowManager}.dataStore"
+        }
+    });
+
+    jqUnit.test("Distribute an instantiated component", function () {
+        var server = fluid.tests.server();
+        console.log("server", server);
+        jqUnit.assertTrue("inMemoryDataStore is distributed", server.flowManager.dataStore.options.inMemory);
+    });
+
 })(jQuery);
