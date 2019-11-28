@@ -5083,4 +5083,29 @@ https://github.com/fluid-project/infusion/raw/master/Infusion-LICENSE.txt
         jqUnit.assertEquals("The distributed options has been passed down to subComponent #2", 1, that.sub2.options.userOption);
     });
 
+    /** FLUID-6437 distributeOptions with 0 as value **/
+
+    fluid.defaults("fluid.tests.distributeOptions6437", {
+        gradeNames: ["fluid.component"],
+        components: {
+            child: {
+                type: "fluid.component",
+                options: {
+                    toDistribute: 1
+                }
+            }
+        },
+        toDistribute: 0,
+        distributeOptions: [{
+            record: "{that}.options.toDistribute",
+            target: "{that child}.options.toDistributeTarget"
+        }]
+    });
+
+    jqUnit.test("FLUID-6437: {that} distributed using 'record' should point to the target component", function () {
+        var that = fluid.tests.distributeOptions6437();
+
+        jqUnit.assertEquals("FLUID-6437: {that} distributed using 'record' points to the source component", 0, that.child.options.toDistributeTarget);
+    });
+
 })(jQuery);
